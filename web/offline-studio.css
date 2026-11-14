@@ -1,0 +1,26 @@
+#fujix-offline-open{position:fixed;top:82px;right:16px;z-index:2180;border:1px solid #48a6d5;background:#092338;color:#a8e8ff;padding:10px 13px;border-radius:10px;font:700 12px system-ui;box-shadow:0 8px 30px #0007;cursor:pointer}
+#fujix-offline-root[hidden]{display:none}
+#fujix-offline-root{position:fixed;inset:0;z-index:44000;background:rgba(0,0,0,.8);display:grid;place-items:center;padding:15px;font-family:system-ui,sans-serif;color:#e6edf6}
+#fujix-offline-card{width:min(920px,100%);max-height:93vh;overflow-y:auto;box-sizing:border-box;background:#11181f;border:1px solid #365269;border-radius:16px;box-shadow:0 35px 100px #000d}
+#fujix-offline-card header{display:flex;align-items:start;justify-content:space-between;gap:12px;padding:19px 22px 14px;border-bottom:1px solid #304454}
+#fujix-offline-card h2{font-size:23px;font-weight:750;margin:0;color:#f4faff}
+#fujix-offline-card h3{font-size:15px;margin:0 0 7px;color:#ecf6ff}
+#fujix-offline-card p{font-size:12px;line-height:1.55;color:#afc0cc;margin:5px 0 10px}
+#fujix-offline-card button,#fujix-offline-card select{border:1px solid #436780;background:#1d3548;color:#d9edff;padding:9px 11px;border-radius:8px;font:600 12px system-ui;cursor:pointer}
+#fujix-offline-card button:disabled{opacity:.45;cursor:not-allowed}
+#fujix-offline-card button.main{background:#1286c4;color:#fff;border-color:#219fe3}
+#fujix-offline-tabs{padding:12px 20px;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid #293946}
+#fujix-offline-tabs button[aria-selected="true"]{background:#136898;border-color:#43baff;color:#fff}
+#fujix-offline-panels{padding:18px 21px 24px}
+#fujix-offline-panels section[hidden]{display:none}
+.fujix-offline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:10px;margin:13px 0 18px}
+.fujix-offline-box{border:1px solid #354758;background:#15212c;border-radius:12px;padding:13px}
+.fujix-offline-box strong{display:block;font-size:13px;color:#e5f5ff;margin-bottom:4px}
+.fujix-offline-box small{font-size:11px;color:#a0b2be;line-height:1.5}
+.fujix-offline-status{display:block;color:#93b9d1;font-size:12px;min-height:18px;padding:4px 0}
+.fujix-offline-actions{display:flex;flex-wrap:wrap;gap:9px;margin:10px 0 15px}
+#fujix-offline-card ol{font-size:12px;line-height:1.8;color:#c1d1dd;padding-left:22px}
+#fujix-offline-card code{color:#b5dffa}
+#fujix-offline-card input,#fujix-offline-card textarea{background:#0c1720;border:1px solid #476075;color:#eaf6ff;border-radius:7px;padding:9px;font:12px system-ui;max-width:100%;box-sizing:border-box}
+.fujix-offline-data{font:12px/1.65 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:260px;overflow:auto;background:#09131b;color:#bed0df;border:1px solid #2d4051;border-radius:9px;padding:12px}
+@media(max-width:600px){#fujix-offline-open{top:auto;bottom:20px;left:12px;right:auto}#fujix-offline-card header{padding:14px}#fujix-offline-panels{padding:14px}#fujix-offline-card h2{font-size:19px}}

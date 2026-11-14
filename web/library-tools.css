@@ -1,0 +1,30 @@
+/* Existing launchers stay in the DOM to preserve their original click handlers. */
+#fujix-offline-open,#fujix-wlan-open{display:none!important}
+#fujix-library-tools[hidden],#fujix-library-tools [hidden]{display:none!important}
+#fujix-library-tools{position:fixed;z-index:10009;bottom:24px;right:24px;color:#f5f5f5;font:400 13px/1.45 Inter,system-ui,-apple-system,sans-serif}
+#fujix-library-tools button{font:inherit;cursor:pointer}
+#fujix-library-tools .fxlt-launcher{display:flex;align-items:center;gap:10px;padding:12px 16px;background:#101113;border:1px solid #35363b;border-radius:14px;box-shadow:0 12px 32px #000a;color:#f5f5f5;font-weight:650;letter-spacing:.01em}
+#fujix-library-tools .fxlt-launcher:hover,#fujix-library-tools .fxlt-launcher[aria-expanded=true]{background:#1c1d20;border-color:#777}
+#fujix-library-tools .fxlt-icon{font-size:17px;color:#d4d4d8}
+#fujix-library-tools .fxlt-chevron{margin-left:7px;color:#a1a1aa}
+#fujix-library-tools .fxlt-panel{position:absolute;right:0;bottom:calc(100% + 12px);width:min(360px,calc(100vw - 28px));background:#0e0f11;border:1px solid #33343a;border-radius:18px;box-shadow:0 24px 72px #000d;overflow:hidden}
+#fujix-library-tools .fxlt-heading{padding:23px 22px 18px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid #25262b}
+#fujix-library-tools .fxlt-eyebrow{font-size:9px;letter-spacing:.18em;color:#a1a1aa;font-weight:750}
+#fujix-library-tools h2{font-size:19px;font-weight:750;letter-spacing:-.04em;color:#fafafa;margin:5px 0 3px}
+#fujix-library-tools p{margin:0;color:#8f9097;font-size:12px}
+#fujix-library-tools .fxlt-close{width:27px;height:27px;flex:none;display:grid;place-items:center;border-radius:8px;background:#202126;color:#ddd;font-size:21px}
+#fujix-library-tools .fxlt-close:hover{background:#37383f}
+#fujix-library-tools .fxlt-items{padding:8px}
+#fujix-library-tools .fxlt-item{display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;width:100%;padding:15px 13px;border-radius:11px;color:#f3f4f6;background:transparent}
+#fujix-library-tools .fxlt-item:hover{background:#202126}
+#fujix-library-tools .fxlt-item-copy{display:flex;flex-direction:column;gap:3px}
+#fujix-library-tools .fxlt-item strong{font-size:13px;font-weight:650}
+#fujix-library-tools .fxlt-item small{font-size:11px;color:#9698a0;line-height:1.45}
+#fujix-library-tools .fxlt-item-arrow{color:#999ba3;font-size:18px}
+#fujix-library-tools button:focus-visible{outline:2px solid #8ecbfb;outline-offset:3px}
+@media(max-width:550px){#fujix-library-tools{right:12px;bottom:112px}#fujix-library-tools .fxlt-launcher{padding:10px 12px;font-size:12px}#fujix-library-tools .fxlt-panel{max-height:65vh;overflow-y:auto}}
+/* Keep every existing Library Tools workflow accessible without blocking the
+ * fixed bottom FujiX app navigation. The compact launcher sits next to Import. */
+#fujix-library-tools{top:24px;bottom:auto;right:153px}
+#fujix-library-tools .fxlt-panel{top:calc(100% + 10px);bottom:auto}
+@media(max-width:650px){#fujix-library-tools{top:75px;right:12px;bottom:auto}#fujix-library-tools .fxlt-panel{top:calc(100% + 8px);bottom:auto;max-height:65vh;overflow-y:auto}}

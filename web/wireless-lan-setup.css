@@ -1,0 +1,63 @@
+/* Scoped onboarding: no changes to the original FujiX Sync layout or recipe UI. */
+#fujix-wlan-open { position:fixed;z-index:10010;right:20px;bottom:20px;padding:11px 15px;border:1px solid #546d88;border-radius:12px;background:#152436;color:#f4f6fa;font:600 12px Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 8px 28px #0007;letter-spacing:.015em }
+#fujix-wlan-open:hover { background:#213750 }
+#fujix-wlan-backdrop[hidden], #fujix-wlan-dialog [hidden] { display:none!important }
+#fujix-wlan-backdrop { position:fixed;inset:0;z-index:10011;background:#02080ebd;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box }
+#fujix-wlan-dialog { box-sizing:border-box;background:#111b29;color:#e9f0f7;border:1px solid #3b4b60;border-radius:18px;box-shadow:0 20px 90px #000b;width:min(700px,100%);max-height:min(88vh,860px);overflow:auto;font:13px/1.6 Inter,system-ui,sans-serif }
+#fujix-wlan-dialog * { box-sizing:border-box }
+#fujix-wlan-dialog .fujix-wlan-heading { display:flex;justify-content:space-between;gap:16px;padding:25px 28px 17px }
+#fujix-wlan-dialog .fujix-wlan-eyebrow { font:600 10px Inter,system-ui,sans-serif;color:#9ab7d5;letter-spacing:.15em }
+#fujix-wlan-dialog h2 { font-size:22px;line-height:1.25;margin:5px 0 7px;font-weight:650;color:#fff }
+#fujix-wlan-dialog p { margin:0;color:#bcc9d7 }
+#fujix-wlan-dialog .fujix-wlan-icon { align-self:flex-start;font-size:25px;line-height:1;min-width:32px;min-height:32px;border:0;background:transparent;color:#b9cadb;cursor:pointer }
+#fujix-wlan-dialog .fujix-wlan-tabs { display:flex;gap:9px;padding:0 28px 16px;border-bottom:1px solid #344357 }
+#fujix-wlan-dialog .fujix-wlan-tabs button { background:#1a2939;color:#bfd0e3;border:1px solid #35465a;padding:10px 12px;border-radius:9px;cursor:pointer;flex:1;min-width:0;font-weight:600;font-size:12px }
+#fujix-wlan-dialog .fujix-wlan-tabs { flex-wrap:wrap }
+#fujix-wlan-dialog .fujix-wlan-tabs button { flex-basis:calc(50% - 8px) }
+#fujix-wlan-dialog .fujix-wlan-recovery-actions {display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+#fujix-wlan-dialog .fujix-wlan-recovery-actions button {background:#304b66;color:#fff;border:1px solid #7296b7;border-radius:9px;padding:10px 12px;cursor:pointer;font:600 12px Inter,system-ui,sans-serif}
+#fujix-wlan-dialog .fujix-wlan-recovery-actions button:disabled {opacity:.5}
+#fujix-wlan-dialog .fujix-wlan-bt-result {margin-top:8px;padding:11px 12px;color:#d6e6f7;font-size:12px;border-radius:9px;background:#1b2a3a}
+#fujix-wlan-dialog .fujix-wlan-tabs button[aria-pressed=true] { background:#30465d;color:#fff;border-color:#7795b7 }
+#fujix-wlan-dialog .fujix-wlan-guide { padding:22px 28px 18px }
+#fujix-wlan-dialog .fujix-wlan-lead { font-size:13px;line-height:1.65 }
+#fujix-wlan-dialog ol { padding-left:19px;margin:16px 0;display:grid;gap:10px;color:#d8e2ee }
+#fujix-wlan-dialog li { padding-left:5px }
+#fujix-wlan-dialog strong { color:#f0f5fc }
+#fujix-wlan-dialog .fujix-wlan-note { margin:16px 0;color:#b4c6d9;background:#1c2b3a;border-left:3px solid #7091b3;padding:11px 14px;border-radius:3px 9px 9px 3px }
+#fujix-wlan-dialog .fujix-wlan-link { display:inline-block;color:#b2d4ff;text-decoration:underline;text-underline-offset:3px;margin-top:5px }
+#fujix-wlan-dialog .fujix-wlan-footer { display:flex;justify-content:space-between;align-items:center;gap:16px;background:#162332;border-top:1px solid #344357;padding:17px 28px }
+#fujix-wlan-dialog .fujix-wlan-footer p { max-width:470px;margin-top:4px;font-size:12px }
+#fujix-wlan-dialog #fujix-wlan-check { border-radius:9px;padding:11px 14px;background:#3a536d;color:#fff;border:1px solid #6788a9;white-space:nowrap;cursor:pointer;font-weight:600 }
+#fujix-wlan-dialog #fujix-wlan-check:disabled { cursor:wait;opacity:.6 }
+#fujix-wlan-dialog .fujix-wlan-ip-row { display:flex;gap:8px;margin:8px 0 12px }
+#fujix-wlan-dialog .fujix-wlan-ip-row input { flex:1;min-width:0;background:#101b28;color:#f4f6f8;border:1px solid #566579;border-radius:9px;padding:11px;font:inherit }
+#fujix-wlan-dialog .fujix-wlan-ip-row button { background:#304b66;color:#fff;border:1px solid #7296b7;border-radius:9px;padding:10px 12px;cursor:pointer;font-weight:600 }
+#fujix-wlan-dialog .fujix-wlan-ip-row button:disabled { opacity:.5 }
+#fujix-wlan-dialog .fujix-wlan-result { margin-top:10px;min-height:35px;font-size:12px }
+#fujix-wlan-dialog .fujix-wlan-capture-panel { margin-top:12px;padding:13px 15px;background:#142739;border:1px solid #3c5876;border-radius:10px }
+#fujix-wlan-dialog .fujix-wlan-live-panel { margin-top:12px;padding:13px 15px;background:#142739;border:1px solid #3c5876;border-radius:10px }
+#fujix-wlan-dialog .fujix-wlan-handoff-panel { padding:14px 16px;margin:15px 0;border:1px solid #49657f;background:#1c2c3f;border-radius:11px }
+#fujix-wlan-dialog .fujix-wlan-handoff-panel p { margin:9px 0;font-size:12px;line-height:1.55 }
+#fujix-wlan-dialog #fujix-wlan-ble-handoff-status { color:#c8e1f5;font-weight:600 }
+#fujix-wlan-dialog .fujix-wlan-live-panel p {font-size:12px;margin-top:8px}
+#fujix-wlan-dialog .fujix-wlan-live-panel img {display:block;width:100%;height:auto;max-height:360px;object-fit:contain;background:#0b121c;border-radius:9px;margin-top:12px}
+#fujix-wlan-dialog .fujix-wlan-live-panel img[hidden] {display:none}
+#fujix-wlan-dialog .fujix-wlan-capture-panel p { margin:8px 0;font-size:12px;line-height:1.5 }
+#fujix-wlan-dialog .fujix-wlan-capture-panel button { padding:10px 13px;border-radius:9px;border:1px solid #7fa5c7;background:#355b7c;color:white;font:600 12px Inter,system-ui,sans-serif;cursor:pointer }
+#fujix-wlan-dialog .fujix-wlan-capture-panel button:disabled { background:#263648;border-color:#3b5066;color:#7a90a7;cursor:not-allowed }
+#fujix-wlan-dialog .fujix-wlan-photo-list { display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:9px;margin:14px 0 }
+#fujix-wlan-dialog .fujix-wlan-photo-entry { text-align:left;display:flex;flex-direction:column;gap:5px;min-width:0;padding:11px;border:1px solid #40586f;border-radius:9px;background:#172737;color:#fff;cursor:pointer }
+#fujix-wlan-dialog .fujix-wlan-photo-entry strong { overflow-wrap:anywhere;font-size:12px }
+#fujix-wlan-dialog .fujix-wlan-photo-entry span { font-size:11px;color:#abbfd4 }
+#fujix-wlan-dialog .fujix-wlan-photo-selected { border:1px solid #435e78;border-radius:11px;padding:15px;margin-top:12px;background:#172736 }
+#fujix-wlan-dialog .fujix-wlan-photo-selected img { display:block;max-width:100%;max-height:320px;margin:12px auto;object-fit:contain;border-radius:7px }
+#fujix-wlan-dialog .fujix-wlan-photo-selected img[hidden] { display:none }
+#fujix-wlan-dialog .fujix-wlan-tether-setup {margin:16px 0;padding:16px;background:#16283a;border:1px solid #4b6884;border-radius:12px}
+#fujix-wlan-dialog .fujix-wlan-tether-setup label {display:block;margin-bottom:7px;font-size:12px;color:#e2edfa;font-weight:600}
+#fujix-wlan-dialog #fujix-wlan-tether-status {font-size:12px;color:#c3dcf5;line-height:1.6}
+#fujix-wlan-dialog .fujix-wlan-tether-review {margin:15px 0;background:#0c1725;padding:16px;border:1px solid #3e5877;border-radius:12px}
+#fujix-wlan-dialog .fujix-wlan-tether-review img {display:block;width:100%;max-height:420px;object-fit:contain;margin:14px 0;background:#070a0f;border-radius:8px}
+#fujix-wlan-dialog .fujix-wlan-tether-review img[hidden] {display:none}
+#fujix-wlan-dialog .fujix-wlan-tether-review p {font-size:12px;color:#b7cbe0;margin:9px 0}
+@media(max-width:550px) { #fujix-wlan-dialog .fujix-wlan-heading{padding:19px 18px 13px}#fujix-wlan-dialog .fujix-wlan-guide{padding:18px}#fujix-wlan-dialog .fujix-wlan-tabs{padding:0 18px 14px}#fujix-wlan-dialog .fujix-wlan-footer{padding:14px 18px;flex-direction:column;align-items:stretch}#fujix-wlan-open{right:12px;bottom:12px} }

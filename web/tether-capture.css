@@ -1,0 +1,18 @@
+#fujix-capture-dock{position:relative;z-index:auto;width:100%;background:#111113;color:#eef3fa;border:1px solid #242428;border-radius:13px;box-shadow:none;overflow:hidden;font:12px system-ui,sans-serif}
+#fujix-capture-dock[hidden],#fujix-capture-body[hidden],#fujix-capture-display[hidden]{display:none}
+#fujix-capture-dock .fujix-capture-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid #242428}
+#fujix-capture-toggle{background:#1c1c1e;border:1px solid #333337;border-radius:10px;padding:10px 13px;color:#7dd3fc;font-size:12px;font-weight:650;cursor:pointer;white-space:nowrap}
+#fujix-capture-toggle:hover,#fujix-capture-toggle:focus-visible{background:#2b2b2e}
+#fujix-capture-body{padding:12px}
+#fujix-capture-shoot{width:100%;border:0;border-radius:8px;padding:11px;background:#39b8ee;color:#081721;font-weight:750;cursor:pointer}
+#fujix-capture-shoot:disabled{opacity:.45;cursor:not-allowed}
+#fujix-capture-status{font-size:11px;color:#bdcddd;line-height:1.55;margin:9px 0}
+#fujix-capture-display{padding:8px;background:#070c11;border:1px solid #3f6077;border-radius:8px}
+#fujix-capture-display img{display:block;width:100%;max-height:190px;object-fit:contain}
+#fujix-capture-display img[hidden],#fujix-capture-download[hidden]{display:none}
+#fujix-capture-caption{font-size:11px;color:#cedde9;line-height:1.4;margin:8px 0}
+#fujix-capture-download{color:#7dd3fc;font-size:11px;text-decoration:underline}
+#fujix-capture-dock .fujix-capture-bottom{display:flex;align-items:center;justify-content:space-between;gap:5px;margin:9px 0}
+#fujix-capture-pending{color:#c9d2dd;font-size:10px}
+#fujix-capture-refresh{padding:5px 7px;color:#edf6ff;background:#264459;border:1px solid #45738e;border-radius:6px;cursor:pointer;font-size:11px}
+#fujix-capture-dock small{color:#9caebe;line-height:1.45;display:block;font-size:10px}

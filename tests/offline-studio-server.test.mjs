@@ -1,0 +1,80 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import os from 'node:os';
+import path from 'node:path';
+import fsp from 'node:fs/promises';
+const dir=await fsp.mkdtemp(path.join(os.tmpdir(),'fujix-http-offline-'));
+process.env.FUJIX_PROFILE_VAULT_DIR=path.join(dir,'Vault');
+const {server}=await import('../server.mjs');
+let origin;
+test.before(async()=>{
+ origin=await new Promise(resolve=>server.listen(0,'127.0.0.1',()=>resolve('http://127.0.0.1:'+server.address().port)));
+});
+test.after(async()=>{
+ await new Promise(resolve=>server.close(resolve));
+ await fsp.rm(dir,{recursive:true,force:true});
+});
+test('offline read-only capabilities never claim physical camera proof',async()=>{
+ const response=await fetch(origin+'/api/studio/filmkit/capabilities');
+ assert.equal(response.status,200);
+ const data=await response.json();
+ assert.equal(data.cameraConnected,false);
+ assert.equal(data.hardwareVerified,false);
+ assert.equal(data.capabilities.profileWrite.ready,false);
+ assert.equal(data.capabilities.rawConversion.ready,false);
+ const ready=await fetch(origin+'/api/studio/readiness');
+ assert.equal(ready.status,200);
+ const inspected=await ready.json();
+ assert.equal(inspected.firmwareModified,false);
+ assert.equal(inspected.nativeUsbTetherSupported,false);
+ assert.equal(inspected.fullResolutionCaptureVerified,false);
+});
+test('C1–C7 local snapshot save and export preserve manual provenance',async()=>{
+ const save=await fetch(origin+'/api/studio/profiles/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({slot:'C2',name:'Warm Test',recipe:{filmSimulation:'Classic Chrome',dynamicRange:'DR400'}})});
+ assert.equal(save.status,200);
+ const saved=await save.json();
+ assert.equal(saved.snapshot.slot,'C2');
+ assert.equal(saved.snapshot.provenance.type,'manual');
+ const list=await (await fetch(origin+'/api/studio/profiles')).json();
+ assert.equal(list.slots.C2.name,'Warm Test');
+ assert.equal(list.slots.C2.recipe.dynamicRange,'DR400');
+ assert.equal(list.slots.C1,null);
+ const text=await fsp.readFile(path.join(dir,'Vault','camera-profile-vault.json'),'utf8');
+ assert.ok(text.includes('"Warm Test"'));
+});
+test('preview of vault import never overwrites the saved snapshots',async()=>{
+ const original=await (await fetch(origin+'/api/studio/profiles')).json();
+ const incoming=structuredClone(original);incoming.slots.C2.name='Different Test';
+ const r=await fetch(origin+'/api/studio/profiles/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({backup:incoming,apply:false})});
+ assert.equal(r.status,200);
+ const preview=await r.json();assert.equal(preview.applied,false);assert.ok(preview.diff.C2.length>0);
+ assert.equal((await (await fetch(origin+'/api/studio/profiles')).json()).slots.C2.name,'Warm Test');
+});
+test('multishot analyzer creates project and escaped portable HTML without reading photos',async()=>{
+ const manifest={version:1,sources:[{path:'DSCF001.jpg',eventId:'test-event',type:'focus',seriesId:'focus-1',captureTime:'2026-11-02T18:01:00Z',sequenceIndex:0,expectedCount:2},{path:'DSCF002.jpg',eventId:'test-event',type:'focus',seriesId:'focus-1',captureTime:'2026-11-02T18:01:01Z',sequenceIndex:1,expectedCount:2}]};
+ const r=await fetch(origin+'/api/studio/multishot/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(manifest)});
+ assert.equal(r.status,200);
+ const project=await r.json();assert.equal(project.project.groups.length,1);assert.equal(project.project.groups[0].complete,true);
+ assert.ok(project.contactSheetHtml.includes('DSCF001.jpg'));
+ const invalid=await fetch(origin+'/api/studio/multishot/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({version:1,sources:[{...manifest.sources[0],path:'../../private/file.jpg'}]})});
+ assert.equal(invalid.status,422);
+});
+test('invalid imported photo ID, untrusted origin, and app launch type are rejected',async()=>{
+ const inspection=await fetch(origin+'/api/studio/image/inspect?id=../../etc/passwd');
+ assert.equal(inspection.status,422);
+ const originAttack=await fetch(origin+'/api/studio/profiles/save',{method:'POST',headers:{Origin:'https://evil.example','Content-Type':'application/json'},body:'{}'});
+ assert.equal(originAttack.status,403);
+ const launch=await fetch(origin+'/api/studio/open-app',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({app:'unknown'})});
+ assert.equal(launch.status,422);
+  const idle=await (await fetch(origin+'/api/studio/timelapse/status')).json();
+  assert.equal(idle.running,false);
+  assert.equal(typeof idle.renderer.available,'boolean');
+  assert.ok(idle.destination.endsWith(path.join('Projects','TimeLapses')));
+  assert.equal(idle.cameraCapture,false);
+  const noConfirm=await fetch(origin+'/api/studio/timelapse/start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ids:['0123456789abcdef01234567','0123456789abcdef01234568'],fps:24})});
+  assert.equal(noConfirm.status,422);
+  const missingPhotos=await fetch(origin+'/api/studio/timelapse/start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ids:['0123456789abcdef01234567','0123456789abcdef01234568'],fps:24,confirm:true})});
+  assert.equal(missingPhotos.status,422,'missing camera originals cannot create a movie from fabricated photos');
+  const stopped=await fetch(origin+'/api/studio/timelapse/stop',{method:'POST'});
+  assert.equal(stopped.status,200);
+});

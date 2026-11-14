@@ -1,0 +1,9 @@
+/* The Film Lab tab inherits the real app navigation item classes.
+ * Never use a floating or fixed overlay; never cover other controls. */
+#fujix-film-lab-shortcut{cursor:pointer;flex-shrink:0;box-shadow:none!important;text-decoration:none}
+#fujix-film-lab-shortcut:focus-visible{outline:2px solid #a8b6c7;outline-offset:2px}
+#fujix-film-lab-shortcut:hover{filter:brightness(1.18)}
+/* Retire the legacy floating launchers as well as the removed Library Tools
+ * overlay: their old fixed-position buttons obscured the app navigation. The
+ * actual offline, Wi-Fi and camera functionality remains implemented. */
+#fujix-offline-open,#fujix-wlan-open{display:none!important}
