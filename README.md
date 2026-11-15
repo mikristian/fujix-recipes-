@@ -1,4 +1,14 @@
-# Fuji X Recipes — public source preview
+# Fuji X Recipes — source and camera-workflow preview
+
+## Interface screenshots
+
+These are **real, cropped screenshots from the related FujiX LightCraft native companion interface on November 5, 2026**. They show where recipe presets and camera connection controls were developed. The standalone Fuji X Recipes source in this repository does **not** include that installed native editor frontend, and the images do not demonstrate physical camera writes or a complete build from this checkout. Personal photographs and third-party recipe records have been left out.
+
+| Preset browser | Camera connection and slot safety |
+| --- | --- |
+| ![Native companion editor preset browser with generic built-in preset categories](docs/screenshots/companion-preset-browser.png) | ![Native companion editor X100VI camera connection and custom slot UI with no active camera connection](docs/screenshots/companion-camera-connection-panel.png) |
+
+See the [visual provenance and limitations](docs/screenshots/README.md) and [source architecture guide](docs/ARCHITECTURE.md).
 
 ![Illustrative source architecture diagram](docs/source-architecture.svg)
 
