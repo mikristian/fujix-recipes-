@@ -2,21 +2,23 @@
 
 ## Interface screenshots
 
-These are **real, cropped screenshots from the related FujiX LightCraft native companion interface on November 5, 2026**. They show where recipe presets and camera connection controls were developed. The standalone Fuji X Recipes source in this repository does **not** include that installed native editor frontend, and the images do not demonstrate physical camera writes or a complete build from this checkout. Personal photographs and third-party recipe records have been left out.
+These are **authentic captures of the installed Fuji X Recipes interface**, served by the running local FujiX Sync service on November 14, 2026. They were captured through the app’s exact configured local URL using a separate headless Chrome window. Recipe names, creator excerpts and image content have been blurred where necessary; the visible layouts, modes and controls come from the real app. The captures do not prove a camera connection or physical camera writes.
 
-| Preset browser | Camera connection and slot safety |
+| Recipe photo grid | Recipe list |
 | --- | --- |
-| ![Native companion editor preset browser with generic built-in preset categories](docs/screenshots/companion-preset-browser.png) | ![Native companion editor X100VI camera connection and custom slot UI with no active camera connection](docs/screenshots/companion-camera-connection-panel.png) |
+| ![Installed Fuji X Recipes photo grid, with private recipe names and image content blurred](docs/screenshots/fuji-recipes-grid-redacted.png) | ![Installed Fuji X Recipes list view, with private recipe names blurred](docs/screenshots/fuji-recipes-list-redacted.png) |
 
-See the [visual provenance and limitations](docs/screenshots/README.md) and [source architecture guide](docs/ARCHITECTURE.md).
+| Recipe detail | Camera Sync |
+| --- | --- |
+| ![Actual recipe detail page, with creator content and sample photographs redacted](docs/screenshots/fuji-recipe-detail-redacted.png) | ![Actual local Camera Sync C1 through C7 slots dashboard, with private assignments and photos blurred](docs/screenshots/fuji-camera-sync-status.png) |
+
+![Actual empty Recipe Library import page in the installed application](docs/screenshots/fuji-recipe-library-redacted.png)
+
+See [image provenance and redactions](docs/screenshots/README.md) and [source architecture](docs/ARCHITECTURE.md).
 
 ![Illustrative source architecture diagram](docs/source-architecture.svg)
 
-For a file-by-file explanation of the included service, recipe storage, import helpers and camera research tools, see the [architecture and capability guide](docs/ARCHITECTURE.md). The diagram illustrates modules from the included source; it is not a screenshot of the installed application.
-
-## Capabilities and visual preview
-
-The repository includes the recipe draft/store and backup/restore logic, browser feature modules, guarded photo import helpers, and experimental connectivity tooling. The diagram above is a **source-based preview**, created for this release from the included modules. A genuine end-to-end desktop UI screenshot is unavailable because the compiled frontend was excluded; no private photographs, third-party recipe images, or staged camera success screens are represented as working features.
+The screenshots document **installed interface behavior**, while the included repo contains the separate publishable source subset. The historical React frontend is present locally only as compiled JavaScript and CSS, and has not been added to this release. Consequently this checkout cannot reproduce the pictured full interface from source alone. The architecture diagram is an illustration, not a screenshot.
 
 This repository publishes the original local FujiX Sync **Node.js backend source**, camera photo import and recipe backup workflows, handwritten web modules, unit tests and the macOS launcher bootstrap source. It contains no photographer's library or creator-supplied recipe collection. Start with `node server.mjs` (Node 20+ recommended); the backend listens on 127.0.0.1:4194.
 

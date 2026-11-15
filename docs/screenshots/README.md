@@ -1,8 +1,11 @@
-# Fuji X Recipes interface screenshots
+# Installed Fuji X Recipes screenshots
 
-These are **genuine historical UI captures**, not generated illustrations or evidence of a successful USB camera write. They were taken from the related **FujiX LightCraft native editor** on November 5, 2026 and cropped to the UI controls to exclude the user's photo thumbnails, background art, desktop, and original third-party creator recipe database.
+Verified November 14, 2026 from the live Fuji X Recipes local web interface. The installed app bundle `Fuji X Recipes.app/Contents/Resources/workspace.json` points to `http://127.0.0.1:4194/?tab=library`; the running FujiX Sync service delivered the historical React UI bundle. Captures used headless Google Chrome pointed at that exact local service. These are **actual UI states**, not reconstructions, mockups or LightCraft companion screens.
 
-- `companion-preset-browser.png`: built-in preset category UI in the companion editor.
-- `companion-camera-connection-panel.png`: X100VI native camera-control interface. It explicitly displays **no persistent camera session**; the C-bank read/write buttons are inactive.
+- `fuji-recipes-list-redacted.png`: **My Recipes**, genuine list mode; private recipe titles blurred.
+- `fuji-recipes-grid-redacted.png`: **My Recipes**, genuine photo grid; titles and third-party/creator photograph thumbnails blurred. Film simulation labels and layout preserved.
+- `fuji-recipe-detail-redacted.png`: actual individual recipe page with Save to Backup and author/detail layout. Creator text, recipe title and reference photographs intentionally blurred.
+- `fuji-recipe-library-redacted.png`: real Recipe Library article URL entry and empty search result state.
+- `fuji-camera-sync-status.png`: **Camera Sync** interface, local backup sets and C1–C7 grid. User recipe assignments and photos intentionally blurred. **This is a locally staged slots map, not evidence of a USB camera write or readback.**
 
-**Scope:** This source-only repository contains FujiX Sync's Node backend, handwritten web modules, backup/restore tools, photo import helpers and tests. The compiled legacy React interface and the native companion editor shown above are not included. The visual screenshots are historical references for project contributors only, not a promise that this source tree launches the depicted app. The physical X100VI C1–C7 custom bank write/readback has not been validated.
+Screenshots expose no user's original photos, recipe record exports, PDF bodies or source-linked creator imagery in readable form. The separate visual architecture diagram documents the source modules, not the shipped React UI. The compiled historical frontend is omitted pending source/license provenance and reconstruction; the checked-in backend and web modules do not constitute the complete installed application. Actual X100VI physical C1–C7 write/readback is unproven.
