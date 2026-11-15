@@ -14,6 +14,23 @@ These are **authentic captures of the installed Fuji X Recipes interface**, serv
 
 ![Actual empty Recipe Library import page in the installed application](docs/screenshots/fuji-recipe-library-redacted.png)
 
+### Other installed navigation views
+
+| Discover | Library / Remote Shooting |
+| --- | --- |
+| ![Actual Discover photo gallery with saved recipe titles and creator images redacted](docs/screenshots/fuji-discover-redacted.png) | ![Actual Library remote shooting interface showing X100VI camera video disconnected](docs/screenshots/fuji-library-redacted.png) |
+
+| AI Chat | Film Lab / FilmKit |
+| --- | --- |
+| ![Actual AI Camera Companion opening screen with suggestions and no user conversation](docs/screenshots/fuji-ai-chat-redacted.png) | ![Actual Film Lab interface with disconnected camera and inactive rendering surface](docs/screenshots/fuji-film-lab-disconnected.png) |
+
+| Film Lab beta notice | Recipes settings / help |
+| --- | --- |
+| ![Actual FilmKit beta notice on first visit](docs/screenshots/fuji-film-lab-redacted.png) | ![Actual FujiX Companion Setup Guide opened from the Recipes gear button](docs/screenshots/fuji-settings-help-redacted.png) |
+
+**Observed limitations:** The Discover gallery displays stored recipe previews, but the imagery and creator-derived titles are redacted. The Library opens an experimental remote shooting interface with **camera Wi-Fi and video disconnected**; no capture, connection or import was attempted. The AI Chat tab displays its initial prompt suggestions; no AI reply was submitted or validated. Film Lab opens a separate FilmKit workspace with its beta warning; the camera is disconnected, no RAF is loaded and no rendering has been verified. The Recipes gear opens a **setup guide**, rather than a general preferences panel. Its guidance about assigning slots describes local app organization, not verified camera-side C-bank programming.
+
+
 See [image provenance and redactions](docs/screenshots/README.md) and [source architecture](docs/ARCHITECTURE.md).
 
 ![Illustrative source architecture diagram](docs/source-architecture.svg)
