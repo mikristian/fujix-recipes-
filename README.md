@@ -1,5 +1,9 @@
 # Fuji X Recipes — public source preview
 
+![Illustrative source architecture diagram](docs/source-architecture.svg)
+
+For a file-by-file explanation of the included service, recipe storage, import helpers and camera research tools, see the [architecture and capability guide](docs/ARCHITECTURE.md). The diagram illustrates modules from the included source; it is not a screenshot of the installed application.
+
 This repository publishes the original local FujiX Sync **Node.js backend source**, camera photo import and recipe backup workflows, handwritten web modules, unit tests and the macOS launcher bootstrap source. It contains no photographer's library or creator-supplied recipe collection. Start with `node server.mjs` (Node 20+ recommended); the backend listens on 127.0.0.1:4194.
 
 **Release limitation:** The installed Fuji X Recipes app is a Tauri/WebKit launcher to the local FujiX Sync service. Its historical React frontend was only available as compiled assets in this workspace, and those assets are deliberately omitted from this source release. The provided HTML entry still refers to that unavailable build. The complete installed desktop UI is therefore **not reproducible from this repository alone**. The standalone native Tauri shell is also not bundled; `native-launcher/fuji_launcher.c` is a bootstrap reference and requires a separately built workspace-shell. Do not advertise this checkout as a complete packaged app.
